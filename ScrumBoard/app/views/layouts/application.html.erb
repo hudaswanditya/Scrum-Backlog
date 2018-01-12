@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ScrumBoard 0.1 Beta</title>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid" id="main">
+      <div class="row">
+
+        <div class="col-md-1 sidebar text-center bg-light">
+          <div class="mb-md-5 pb-md-5">
+            <a href="/" class="icon brand ion-ios-analytics-outline"></a>
+            <p>ScrumBoard 0.1 <br> beta</p>
+          </div>
+
+          <!-- Mobile Nav -->
+          <div class="mobile-menu d-lg-none d-md-none d-xl-none">
+            <a class="icon ion-drag" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse"></a>
+            <div class="collapse multi-collapse" id="menu-collapse">
+              <div class="menu pt-5">
+                <div class="mb-2">
+                  <a href="/sprints" class="text-secondary icon ion-ios-barcode-outline" data-toggle="tooltip" data-placement="right" title="Sprint View">
+                  </a>
+                </div>
+                <div class="mb-2">
+                  <a href="/stories" class="icon text-secondary ion-grid" data-toggle="tooltip" data-placement="right" title="Story View">
+                  </a>
+                </div>
+                <div class="mb-2">
+                  <a class="icon ion-ios-list-outline" data-toggle="tooltip" data-placement="right" title="Task View">
+                  </a>
+                </div>
+                <div class="mb-2">
+                  <a class="icon ion-stats-bars" data-toggle="tooltip" data-placement="right" title="Histo View">
+                  </a>
+                </div>
+                <div class="mb-2">
+                  <a class="icon ion-grid" data-toggle="tooltip" data-placement="right" title="Sprint View">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Desktop Nav -->
+          <div class="menu pt-5 d-none d-sm-none d-md-block">
+            <div class="mb-2">
+              <a href="/sprints" class="text-secondary icon ion-ios-barcode-outline" data-toggle="tooltip" data-placement="right" title="Sprint View">
+              </a>
+              <p>Sprints</p>
+            </div>
+            <div class="mb-2">
+              <a href="/stories" class="icon text-secondary ion-grid" data-toggle="tooltip" data-placement="right" title="Story View">
+              </a>
+              <p>Stories</p>
+            </div>
+            <div class="mb-2">
+              <a class="icon ion-ios-list-outline" data-toggle="tooltip" data-placement="right" title="Task View">
+              </a>
+              <p>Tasks/Issues</p>
+            </div>
+            <div class="mb-2">
+              <a class="icon ion-stats-bars" data-toggle="tooltip" data-placement="right" title="Histo View">
+              </a>
+              <p>Histo/Chart</p>
+            </div>
+            <div class="mb-2">
+              <a class="icon ion-grid" data-toggle="tooltip" data-placement="right" title="Sprint View">
+              </a>
+              <p>View</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9 mt-2 offset-md-1">
+          <%= yield %>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div id="chart"></div>
+      </div>
+    </div>
+    <a class="icon help-btn text-warning ion-help-circled" data-toggle="collapse" href="#help-collapse" aria-expanded="false" aria-controls="help-collapse"></a>
+    <div class="collapse help-container multi-collapse" id="help-collapse">
+      <div class="alert alert-warning" role="alert">
+        If you have any question, just feel free to drop me a message <a href="mailto:huda.swanditya@gmail.com">huda.swanditya@gmail.com</a>.
+      </div>
+    </div>
+  </body>
+</html>

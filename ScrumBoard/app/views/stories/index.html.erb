@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-sm-12 text-center mb-3">
+    <i class="icon text-primary ion-grid" data-toggle="tooltip" data-placement="right" title="Story View">
+    </i>
+    <h1>Stories</h1>
+  </div>
+  <div class="col-sm-12 mb-3">
+   <%= link_to ' New Story', new_story_path, :class => "btn btn-success ion-plus-round" %>
+  </div>
+  <div class="col-sm-12 mb-3">
+    <div id="stories" class="row" data-url="stories/sort">
+      <% @stories.each do |story| %>
+        <div class="col-sm-12 mb-3" id="<%= dom_id(story) %>">
+          <div class="card">
+            <div class="card-header">
+              <%= story.name %>
+              <span class="badge p-2 badge-primary"><%= story.label %></span>
+              <span class="badge p-2 badge-success">sprint <%= story.sprint %></span>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote ">
+                <p>
+                  <%= story.description %>
+                </p>
+              </blockquote>
+              <%= link_to 'Show', story, :class => "btn mr-2 btn-primary", id: dom_id(story) %>
+              <%= link_to 'Edit', edit_story_path(story), :class => "btn mr-2 btn-warning" %>
+              <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn mr-2 btn-danger" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-12 text-success my-3">
+    <hr>
+    <h2>Completed</h2>
+  </div>
+  <% @stories.each do |story| %>
+    <% if story.complete %>
+    <div class="col-sm-12 mb-3">
+      <div class="card">
+        <div class="card-header">
+          <%= story.name %>
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote ">
+            <p><%= story.description %></p>
+            <span class="badge p-2 my-2 badge-primary"><%= story.label %></span>
+            <span class="badge p-2 my-2 badge-success">sprint <%= story.sprint %></span>
+          </blockquote>
+          <%= link_to 'Show', story, :class => "btn mr-2 btn-primary" %>
+          <%= link_to 'Edit', edit_story_path(story), :class => "btn mr-2 btn-warning" %>
+          <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn mr-2 btn-danger" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>

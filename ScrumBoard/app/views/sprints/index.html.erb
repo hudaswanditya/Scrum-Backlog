@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-sm-12 text-center mb-3">
+    <i class="icon text-primary ion-ios-barcode-outline" data-toggle="tooltip" data-placement="right" title="Story View">
+    </i>
+    <h1>Sprints</h1>
+  </div>
+</div>
+  <p id="notice"><%= notice %></p>
+  <nav class="nav nav-tabs" id="myTab" role="tablist">
+    <% @sprints.each do |sprint| %>
+      <a class="nav-item nav-link <% if sprint.active%> active <% end %>" id="nav-home-tab" data-toggle="tab" href="#sprint-<%= sprint.id %>" role="tab" aria-controls="sprint-<%= sprint.id %>" aria-selected="false">
+        <strong><%= sprint.name %></strong>
+      </a>
+    <% end %>
+    <%= link_to '+ New Sprint', new_sprint_path, :class => "nav-item nav-link text-success" %>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <% @sprints.each do |sprint| %>
+      <div class="tab-pane fade <% if sprint.active%> show active <% end %>" id="sprint-<%= sprint.id %>" role="tabpanel" aria-labelledby="sprint-<%= sprint.id %>">
+        <!-- <td><%= sprint.name %></td>
+        <td><%= sprint.description %></td>
+        <td><%= sprint.start_date %></td>
+        <td><%= sprint.end_date %></td>
+        <td><%= sprint.label %></td>
+        <td><%= sprint.active %></td>
+        <td><%= link_to 'Show', sprint %></td>
+        <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
+        <td><%= link_to 'Destroy', sprint, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <div class="row my-3">
+          <div class="col border border-left-0 border-bottom-0 border-top-0">
+            <h4>Backlog</h4>
+          </div>
+          <div class="col border border-left-0 border-bottom-0 border-top-0">
+            <h4>To-Do</h4>
+          </div>
+          <div class="col border border-left-0 border-bottom-0 border-top-0">
+            <h4>In Progress</h4>
+          </div>
+          <div class="col border border-left-0 border-bottom-0 border-top-0">
+            <h4>In Review</h4>
+          </div>
+          <div class="col">
+            <h4>Done</h4>
+          </div>
+        </div>
+        <hr class="border">
+        <div class="row my-3" style="min-height:60vh;">
+          <div class="col border border-left-0 border-bottom-0 border-top-0">
+            Test
+          </div>
+          <div class="col border border-left-0 border-bottom-0 border-top-0">
+          </div>
+          <div class="col border border-left-0 border-bottom-0 border-top-0">
+          </div>
+          <div class="col border border-left-0 border-bottom-0 border-top-0">
+          </div>
+          <div class="col">
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row my-3">
+      <% @stories.each do |story| %>
+      <div class="col-md-12">
+        <% story.name %>
+      </div>
+      <% end %>
+    </div>
+  </div>
