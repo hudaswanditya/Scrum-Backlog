@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-12 text-center mb-3">
+    <i class="icon text-primary ion-ios-list-outline" data-toggle="tooltip" data-placement="right" title="Story View">
+    </i>
+    <h1>Tasks/Issues</h1>
+  </div>
+  <div class="col-md-12">
+    <%= link_to 'New Task', new_task_path, :class  => 'btn btn-success mb-3' %>
+  </div>
+  <% @tasks.each do |task| %>
+  <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote text-center">
+            <div class="text-right"><%= link_to '  ', task, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'text-danger icon-mini ion-close' %></div>
+            <strong> <%= task.name %></strong>
+          </blockquote>
+          <%= link_to '  ', edit_task_path(task), :class => 'icon-mini ion-gear-b text-warning' %>
+          <%= link_to '  ', task, :class => 'float-right icon-mini ion-arrow-right-c text-primary' %>
+        </div>
+      </div>
+  </div>
+  <% end %>
+  <div class="col-md-12 mb-3">
+    <h2>Github Issues</h2>
+  </div>
+  <% @issues.each do |issue| %>
+  <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote">
+            <p><strong> <%= issue['title'] %></strong></p>
+            <% issue['labels'].each do |label| %>
+              <span class="badge p-2 mx-1 badge-success"><%= label['name'] %></span>
+            <% end %>
+          </blockquote>
+        </div>
+      </div>
+  </div>
+  <% end %>
+</div>

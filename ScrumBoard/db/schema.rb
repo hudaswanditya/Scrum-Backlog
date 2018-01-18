@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111203536) do
+ActiveRecord::Schema.define(version: 20180117235429) do
 
   create_table "sprints", force: :cascade do |t|
     t.string "name"
@@ -25,13 +25,23 @@ ActiveRecord::Schema.define(version: 20180111203536) do
 
   create_table "stories", force: :cascade do |t|
     t.string "name"
-    t.string "sprint"
     t.string "description"
     t.string "label"
     t.boolean "complete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
+    t.integer "sprint_id"
+    t.index ["sprint_id"], name: "index_stories_on_sprint_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.string "details"
+    t.string "story"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

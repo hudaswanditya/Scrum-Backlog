@@ -5,9 +5,6 @@
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -36,7 +33,7 @@
                   </a>
                 </div>
                 <div class="mb-2">
-                  <a class="icon ion-ios-list-outline" data-toggle="tooltip" data-placement="right" title="Task View">
+                  <a href="/tasks" class="icon ion-ios-list-outline" data-toggle="tooltip" data-placement="right" title="Task View">
                   </a>
                 </div>
                 <div class="mb-2">
@@ -44,7 +41,7 @@
                   </a>
                 </div>
                 <div class="mb-2">
-                  <a class="icon ion-grid" data-toggle="tooltip" data-placement="right" title="Sprint View">
+                  <a class="icon ion-gear-b" data-toggle="tooltip" data-placement="right" title="Settings">
                   </a>
                 </div>
               </div>
@@ -52,6 +49,7 @@
           </div>
           <!-- Desktop Nav -->
           <div class="menu pt-5 d-none d-sm-none d-md-block">
+
             <div class="mb-2">
               <a href="/sprints" class="text-secondary icon ion-ios-barcode-outline" data-toggle="tooltip" data-placement="right" title="Sprint View">
               </a>
@@ -63,7 +61,7 @@
               <p>Stories</p>
             </div>
             <div class="mb-2">
-              <a class="icon ion-ios-list-outline" data-toggle="tooltip" data-placement="right" title="Task View">
+              <a href="/tasks" class="icon text-secondary ion-ios-list-outline" data-toggle="tooltip" data-placement="right" title="Task View">
               </a>
               <p>Tasks/Issues</p>
             </div>
@@ -73,9 +71,9 @@
               <p>Histo/Chart</p>
             </div>
             <div class="mb-2">
-              <a class="icon ion-grid" data-toggle="tooltip" data-placement="right" title="Sprint View">
+              <a class="icon ion-gear-b" data-toggle="tooltip" data-placement="right" title="Settings">
               </a>
-              <p>View</p>
+              <p>Settings</p>
             </div>
           </div>
         </div>
@@ -83,9 +81,6 @@
         <div class="col-md-9 mt-2 offset-md-1">
           <%= yield %>
         </div>
-      </div>
-      <div class="col-md-12">
-        <div id="chart"></div>
       </div>
     </div>
     <a class="icon help-btn text-warning ion-help-circled" data-toggle="collapse" href="#help-collapse" aria-expanded="false" aria-controls="help-collapse"></a>

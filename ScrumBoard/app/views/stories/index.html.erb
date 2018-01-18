@@ -12,12 +12,15 @@
   <div class="col-sm-12 mb-3">
     <div id="stories" class="row" data-url="stories/sort">
       <% @stories.each do |story| %>
+        <% if !story.complete %>
         <div class="col-sm-12 mb-3" id="<%= dom_id(story) %>">
           <div class="card">
             <div class="card-header">
               <%= story.name %>
-              <span class="badge p-2 badge-primary"><%= story.label %></span>
-              <span class="badge p-2 badge-success">sprint <%= story.sprint %></span>
+              <span class="badge float-right p-2 mx-1  badge-primary"><%= story.label %></span>
+              <% if(story.sprint_id) %>
+              <span class="badge float-right p-2 mx-1 badge-success">sprint <%= story.sprint_id %></span>
+              <% end %>
             </div>
             <div class="card-body">
               <blockquote class="blockquote ">
@@ -31,6 +34,7 @@
             </div>
           </div>
         </div>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -44,12 +48,14 @@
       <div class="card">
         <div class="card-header">
           <%= story.name %>
+          <span class="badge float-right p-2 mx-1  badge-primary"><%= story.label %></span>
+          <% if(story.sprint_id) %>
+          <span class="badge float-right p-2 mx-1 badge-success">sprint <%= story.sprint_id %></span>
+          <% end %>
         </div>
         <div class="card-body">
           <blockquote class="blockquote ">
             <p><%= story.description %></p>
-            <span class="badge p-2 my-2 badge-primary"><%= story.label %></span>
-            <span class="badge p-2 my-2 badge-success">sprint <%= story.sprint %></span>
           </blockquote>
           <%= link_to 'Show', story, :class => "btn mr-2 btn-primary" %>
           <%= link_to 'Edit', edit_story_path(story), :class => "btn mr-2 btn-warning" %>

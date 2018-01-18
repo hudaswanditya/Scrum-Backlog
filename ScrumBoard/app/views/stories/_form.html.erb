@@ -16,9 +16,15 @@
     <%= form.text_field :name, id: :story_name %>
   </div>
 
+
+
   <div class="field">
-    <%= form.label :sprint %>
-    <%= form.text_field :sprint, id: :story_sprint %>
+    <%= form.label :sprint_id %>
+    <%= form.select(:sprint_id) do %>
+      <% @sprints.each do |sprint| -%>
+        <%= content_tag(:option, sprint.name, value: sprint.id) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="field">

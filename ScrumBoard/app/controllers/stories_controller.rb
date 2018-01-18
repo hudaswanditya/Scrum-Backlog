@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.all
+    @sprints = Sprint.all
   end
 
   # GET /stories/1
@@ -15,10 +16,12 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    @sprints = Sprint.all
   end
 
   # GET /stories/1/edit
   def edit
+    @sprints = Sprint.all
   end
 
   def sort
@@ -77,6 +80,6 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:name, :sprint, :description, :label, :complete, :position, :sort)
+      params.require(:story).permit(:name, :description, :label, :complete, :position, :sort, :sprint_id)
     end
 end
