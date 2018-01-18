@@ -6,6 +6,7 @@ class StoriesController < ApplicationController
   def index
     @stories = Story.all
     @sprints = Sprint.all
+
   end
 
   # GET /stories/1

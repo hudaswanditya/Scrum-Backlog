@@ -11,7 +11,7 @@
   </div>
   <div class="col-sm-12 mb-3">
     <div id="stories" class="row" data-url="stories/sort">
-      <% @stories.each do |story| %>
+      <% @stories.each do |story|  %>
         <% if !story.complete %>
         <div class="col-sm-12 mb-3" id="<%= dom_id(story) %>">
           <div class="card">
