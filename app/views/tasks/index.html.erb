@@ -8,7 +8,7 @@
   <div class="col-md-12">
     <%= link_to 'New Task', new_task_path, :class  => 'btn btn-success mb-3' %>
   </div>
-  <% @tasks.each do |task| %>
+  <!-- <% @tasks.each do |task| %>
   <div class="col-md-4 mb-3">
       <div class="card">
         <div class="card-body">
@@ -21,7 +21,7 @@
         </div>
       </div>
   </div>
-  <% end %>
+  <% end %> -->
   <div class="col-md-12 mb-3">
     <h2>Github Issues</h2>
   </div>
@@ -30,11 +30,14 @@
       <div class="card">
         <div class="card-body">
           <blockquote class="blockquote">
+            <div class="text-right"><a class ='text-danger icon-mini ion-close'><a></div>
             <p><strong> <%= issue['title'] %></strong></p>
             <% issue['labels'].each do |label| %>
               <span class="badge p-2 mx-1 badge-success"><%= label['name'] %></span>
             <% end %>
           </blockquote>
+          <a class ='icon-mini ion-gear-b text-warning'></a>
+          <a class ='float-right icon-mini ion-arrow-right-c text-primary'></a>
         </div>
       </div>
   </div>
