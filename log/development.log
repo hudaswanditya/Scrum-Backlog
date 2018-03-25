@@ -17032,3 +17032,131 @@ Processing by StoriesController#index as HTML
 Completed 200 OK in 1499ms (Views: 287.3ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-03-25 11:08:38 +0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+  Rendering stories/index.html.erb within layouts/application
+  [1m[36mStory Load (0.6ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  Rendered stories/index.html.erb within layouts/application (14.4ms)
+Completed 500 Internal Server Error in 11282ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error ():
+     5:     <%= csrf_meta_tags %>
+     6:     <meta charset="utf-8">
+     7:     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     8:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+(execjs):1
+app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3236946937722985852_70258690354180'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_stories_on_sprint_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_stories_on_sprint_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-03-25 11:09:10 +0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+  Rendering stories/index.html.erb within layouts/application
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  Rendered stories/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 5501ms (Views: 3923.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/stories/3" for 127.0.0.1 at 2018-03-25 11:09:31 +0700
+Processing by StoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+  [1m[36mStory Load (0.3ms)[0m  [1m[34mSELECT  "stories".* FROM "stories" WHERE "stories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering stories/show.html.erb within layouts/application
+  Rendered stories/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 2012ms (Views: 137.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stories" for 127.0.0.1 at 2018-03-25 11:09:34 +0700
+Processing by StoriesController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+  Rendering stories/index.html.erb within layouts/application
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  Rendered stories/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 3367ms (Views: 131.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-03-25 11:09:39 +0700
+Processing by TasksController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 1922ms (Views: 115.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/sprints" for 127.0.0.1 at 2018-03-25 11:10:08 +0700
+Processing by SprintsController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+  Rendering sprints/index.html.erb within layouts/application
+  [1m[36mSprint Load (0.6ms)[0m  [1m[34mSELECT "sprints".* FROM "sprints"[0m
+  [1m[36mStory Load (0.4ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  Rendered sprints/index.html.erb within layouts/application (16.9ms)
+Completed 500 Internal Server Error in 5051ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `casecmp?' for "s004":String
+Did you mean?  casecmp):
+    51:               <div class="col-md-2 border border-left-0 border-bottom-0 border-top-0">
+    52:                 <% @issues.each do |issue| %>
+    53:                   <% issue['labels'].each do |label| %>
+    54:                     <% if label['name'].casecmp?(story.label) %>
+    55:                       <% issue['labels'].each do |label| %>
+    56:                         <% if label['name'].casecmp?("todo") %>
+    57:                         <div class="card mb-2 bg-light border-0">
+  
+app/views/sprints/index.html.erb:54:in `block (4 levels) in _app_views_sprints_index_html_erb__1143527498296021017_70195379735880'
+app/views/sprints/index.html.erb:53:in `each'
+app/views/sprints/index.html.erb:53:in `block (3 levels) in _app_views_sprints_index_html_erb__1143527498296021017_70195379735880'
+app/views/sprints/index.html.erb:52:in `each'
+app/views/sprints/index.html.erb:52:in `block (2 levels) in _app_views_sprints_index_html_erb__1143527498296021017_70195379735880'
+app/views/sprints/index.html.erb:39:in `block in _app_views_sprints_index_html_erb__1143527498296021017_70195379735880'
+app/views/sprints/index.html.erb:18:in `_app_views_sprints_index_html_erb__1143527498296021017_70195379735880'
+Started GET "/tasks" for 127.0.0.1 at 2018-03-25 11:10:29 +0700
+Processing by TasksController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+Started GET "/stories" for 127.0.0.1 at 2018-03-25 11:10:31 +0700
+Processing by StoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 2945ms (Views: 127.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-03-25 11:10:33 +0700
+Processing by TasksController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "stories"[0m
+  Rendering stories/index.html.erb within layouts/application
+  [1m[36mStory Load (0.2ms)[0m  [1m[34mSELECT "stories".* FROM "stories"[0m
+  Rendered stories/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 2756ms (Views: 125.6ms | ActiveRecord: 0.7ms)
+
+
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  Rendered tasks/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 4666ms (Views: 107.3ms | ActiveRecord: 0.4ms)
+
+

@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 # Use Bootstrap 4.0.0
 gem 'bootstrap', '~> 4.0.0.beta3'
+# Use Heroku
+gem 'rails_12factor'
 
 # Plugins
 gem 'chart'
