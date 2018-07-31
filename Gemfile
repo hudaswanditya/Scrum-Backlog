@@ -10,6 +10,14 @@ end
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+#group :development, :test do
+#  gem 'sqlite3'
+#end
+
+#group :production do
+#  gem 'pg'
+#end
+#gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -42,6 +50,8 @@ gem 'bootstrap', '~> 4.0.0.beta3'
 # Use Heroku
 gem 'rails_12factor'
 
+
+
 # Plugins
 gem 'chart'
 gem 'ionicons-rails'
@@ -55,6 +65,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
 end
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

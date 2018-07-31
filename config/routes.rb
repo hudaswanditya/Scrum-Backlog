@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :stories
 
-  put '/stories/sort?' => 'story#sort', as: 'sort'
+  get '/sort' => 'stories#sort', as: 'sort'
 
 
   resources :sprints

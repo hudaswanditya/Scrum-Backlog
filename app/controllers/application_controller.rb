@@ -1,15 +1,25 @@
 require 'rest-client'
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :counter
+  before_action :init
 
-  def counter
-    @count = Story.count
+  def init
     base_url = 'http://api.github.com/repos/hudaswanditya/Scrum-Backlog/issues'
-    #key = 'b65be6917d3f186895e8f5ed2b3c505a'
     url = base_url
-    body = RestClient.get(url)
-    @issues = JSON.parse(body)
+    @issues = nil
+    begin
+      body = RestClient.get(url)
+    rescue RestClient::Unauthorized, RestClient::Forbidden => err
+      puts 'Access denied'
+      return err.response
+    rescue RestClient::ImATeapot => err
+      puts 'The server is a teapot! # RFC 2324'
+      return err.response
+    else
+      puts 'It worked!'
+      @issues = JSON.parse(body)
+      return body
+    end
   end
 
 end

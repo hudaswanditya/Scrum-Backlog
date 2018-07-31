@@ -1,10 +1,11 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :update, :destroy, :sort]
+  before_action only: [:show, :edit, :update, :destroy, :sort]
+  # before_action :set_story, only: [:show, :edit, :update, :destroy, :sort]
 
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @stories = Story.all.order(:position)
     @sprints = Sprint.all
 
   end
@@ -12,6 +13,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    set_story
   end
 
   # GET /stories/new
@@ -22,12 +24,13 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
+    set_story
     @sprints = Sprint.all
   end
 
   def sort
     params[:story].each_with_index do |id, index|
-      Story.where(id: id).update_all(position: index + 1)
+     Story.where(id: id).update_all(position: index + 1)
     end
 
     head :ok
@@ -52,6 +55,7 @@ class StoriesController < ApplicationController
   # PATCH/PUT /stories/1
   # PATCH/PUT /stories/1.json
   def update
+    set_story
     respond_to do |format|
       if @story.update(story_params)
         format.html { redirect_to @story, notice: 'Story was successfully updated.' }
@@ -66,6 +70,7 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.json
   def destroy
+    set_story
     @story.destroy
     respond_to do |format|
       format.html { redirect_to stories_url, notice: 'Story was successfully destroyed.' }
@@ -73,11 +78,13 @@ class StoriesController < ApplicationController
     end
   end
 
+  def set_story
+    @story = Story.find(params[:id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_story
-      @story = Story.find(params[:id])
-    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
