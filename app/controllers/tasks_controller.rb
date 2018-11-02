@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
 
-      # RestClient.get('https://api.github.com/?access_token=5445b0e44fb8dec74fb0269dbbe460d115040421')
+      # RestClient.get('https://api.github.com/?access_token=')
       body = {
         :title => @task.name,
         :body => @task.details,
@@ -36,7 +36,7 @@ class TasksController < ApplicationController
         ]
       }
       url = 'https://api.github.com/repos/hudaswanditya/Scrum-Backlog/issues?access_token='
-      token = '5445b0e44fb8dec74fb0269dbbe460d115040421'
+      token = ''
       RestClient.post url + token, body.to_json
 
       redirect_to @task, notice: 'Task was successfully created.'
